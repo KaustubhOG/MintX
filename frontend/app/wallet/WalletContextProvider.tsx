@@ -9,7 +9,6 @@ import {
 } from "@solana/wallet-adapter-wallets";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
-require("@solana/wallet-adapter-react-ui/styles.css");
 
 export default function WalletContextProvider({
     children,

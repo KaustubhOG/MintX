@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import "@solana/wallet-adapter-react-ui/styles.css"; // <-- REQUIRED
 import "./globals.css";
+
 import WalletContextProvider from "./wallet/WalletContextProvider";
 
 const geistSans = Geist({
@@ -18,17 +21,11 @@ export const metadata: Metadata = {
   description: "Token Mint + Vesting Platform",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <WalletContextProvider>
-          {children}
-        </WalletContextProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <WalletContextProvider>{children}</WalletContextProvider>
       </body>
     </html>
   );
