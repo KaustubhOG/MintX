@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use anchor_spl::{
     associated_token::{self, AssociatedToken},
     token_2022::{
-        self, initialize_mint2, mint_to, InitializeMint2, MintTo, Token2022,
+        initialize_mint2, mint_to, InitializeMint2, MintTo, Token2022,
     },
 };
 
@@ -11,11 +11,9 @@ pub struct CreateToken<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
 
-    /// CHECK: Initialized by Token-2022 CPI
     #[account(mut)]
     pub mint: UncheckedAccount<'info>,
 
-    /// CHECK: Initialized by ATA CPI
     #[account(mut)]
     pub user_ata: UncheckedAccount<'info>,
 
