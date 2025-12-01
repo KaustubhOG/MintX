@@ -11,9 +11,11 @@ pub struct CreateToken<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
 
+    /// CHECK: Mint account is initialized via Token-2022 CPI, not by Anchor.
     #[account(mut)]
     pub mint: UncheckedAccount<'info>,
 
+    /// CHECK: ATA is created via the Associated Token Program CPI.
     #[account(mut)]
     pub user_ata: UncheckedAccount<'info>,
 
@@ -21,6 +23,7 @@ pub struct CreateToken<'info> {
     pub token_2022_program: Program<'info, Token2022>,
     pub associated_token_program: Program<'info, AssociatedToken>,
 }
+
 
 pub fn handler(
     ctx: Context<CreateToken>,
