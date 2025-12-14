@@ -28,7 +28,6 @@ pub mod mintx {
         cliff_time: i64,
         end_time: i64,
         total_amount: u64,
-        merkle_root: [u8; 32],
     ) -> Result<()> {
         instructions::initialize_vesting::handler(
             ctx,
@@ -36,7 +35,17 @@ pub mod mintx {
             cliff_time,
             end_time,
             total_amount,
-            merkle_root,
         )
+    }
+
+    pub fn initialize_user_vesting(
+        ctx: Context<InitializeUserVesting>,
+        total_allocation: u64,
+    ) -> Result<()> {
+        instructions::initialize_user_vesting::handler(ctx, total_allocation)
+    }
+
+    pub fn claim(ctx: Context<Claim>) -> Result<()> {
+        instructions::claim::handler(ctx)
     }
 }

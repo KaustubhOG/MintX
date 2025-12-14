@@ -43,8 +43,8 @@ pub fn handler(
             },
         ),
         decimals,
-        &user.key(),       // mint authority
-        Some(&user.key()), // freeze authority
+        &user.key(),
+        Some(&user.key()), 
     )?;
 
 

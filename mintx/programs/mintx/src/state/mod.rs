@@ -1,5 +1,5 @@
 pub mod vesting_config;
-pub mod claim_status;
+pub mod user_vesting;
 
 pub use vesting_config::*;
-pub use claim_status::*;
+pub use user_vesting::*;
